@@ -1,7 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 import { Reply } from '../Reply';
-export const RepliesSection = ({ post, replies, handleChangeReply, handleSubmitReply }) => {
-    const postReplies = replies.filter(reply => reply.idPost === post._id)
+
+export const RepliesSection = ({ post, idPost }) => {
+    const [contentReply, setContentReply] = useState('');
+    const [newReplySubmit, setNewReplySubmit] = useState(false);
+    const [replies, setReplies] = useState([]);
+
+    useEffect(() => {
+        const getReplies = async () => {
+            try {
+                const { data } = await axios.get('https://devto-challenge-react.herokuapp.com/replies')
+                setReplies(data.data.replies)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        getReplies()
+    }, [newReplySubmit])
+
+
+    const postReplies = !replies ? [] : replies.filter(reply => reply.idPost === post._id)
+
+    const handleSubmitReply = async (ev) => {
+        ev.preventDefault();
+        let config = { day: 'numeric', year: 'numeric', month: 'long' };
+        let today = new Date();
+        let createdDate = today.toLocaleDateString("en-US", config);
+        let createdTime = `${today.getHours()}:${today.getMinutes() <= 9 ? '0' + today.getMinutes() : today.getMinutes()}`;
+        if (!contentReply) {
+            alert('No puedes subir un comentario vacio');
+            return;
+        }
+
+        let newReply = {
+            createdDate,
+            createdTime,
+            contentReply,
+            idPost
+        }
+
+        const { data } = await axios.post('https://devto-challenge-react.herokuapp.com/replies', newReply);
+        setNewReplySubmit(true);
+        setNewReplySubmit(false);
+        setContentReply('');
+    }
+
+    if (!replies) {
+        return (<div>Loading</div>)
+    }
 
     return (
         <article id="discussions" className="card p-4 mb-3 w-100">
@@ -17,7 +64,8 @@ export const RepliesSection = ({ post, replies, handleChangeReply, handleSubmitR
                         <input
                             type="text"
                             placeholder="Add to the discussion" className="reply-input w-100 rounded"
-                            onChange={handleChangeReply}
+                            value={contentReply}
+                            onChange={(ev) => setContentReply(ev.target.value)}
                         ></input>
                     </div>
                     <div className="d-flex mb-4">

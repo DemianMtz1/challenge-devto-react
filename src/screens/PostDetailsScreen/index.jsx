@@ -19,11 +19,8 @@ import { useParams } from 'react-router-dom'
 
 export const PostDetailsScreen = () => {
   const [viewport, setViewport] = useState(window.innerWidth);
-  const [post, setPost] = useState()
-  const [posts, setPosts] = useState()
-  const [replies, setReplies] = useState()
-  const [newReplySubmit, setNewReplySubmit] = useState(false);
-  const [newReply, setNewReply] = useState()
+  const [post, setPost] = useState();
+  const [posts, setPosts] = useState();
 
   const params = useParams();
 
@@ -60,28 +57,8 @@ export const PostDetailsScreen = () => {
     getPosts()
   }, [])
 
-  useEffect(() => {
-    const getReplies = async () => {
-      try {
-        const { data } = await axios.get('https://devto-challenge-react.herokuapp.com/replies')
-        setReplies(data.data.replies)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    console.log(replies);
-    getReplies()
-  }, [newReplySubmit])
 
-  const handleChangeReply = (ev) => {
-    setNewReply(ev.target.value)
-    console.log(newReply);
-  }
-  const handleSubmitReply = async (ev) => {
-    ev.preventDefault()
-  }
-
-  if (!post || !posts || !replies) {
+  if (!post || !posts) {
     return (<div className="container container-fluid"><p>Loading</p></div>)
   }
 
@@ -97,8 +74,7 @@ export const PostDetailsScreen = () => {
               <ContentPost post={post} />
               <RepliesSection
                 post={post}
-                replies={replies}
-                handleChangeReply={handleChangeReply}
+                idPost={params.id}
               />
               <ReadNext />
             </div>
