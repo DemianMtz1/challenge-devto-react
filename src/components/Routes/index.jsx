@@ -5,19 +5,17 @@ import {
     Route,
 } from "react-router-dom";
 import { WritePostScreen } from '../../screens/WritePostScreen';
+import { PostDetailsScreen } from '../../screens/PostDetailsScreen';
+
 
 export const Routes = () => {
     return (
         <Switch>
             <Route path="/post-details/:id" exact>
-                <div>
-                    <p>hola desde post details</p>
-                </div>
+                <PostDetailsScreen />
             </Route>
             <Route path="/write-post" exact>
-                <div>
-                    <WritePostScreen />
-                </div>
+                <WritePostScreen />
             </Route>
             <Route path="/" exact>
                 <App />
