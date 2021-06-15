@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
   return (
     <>
-        <footer class="w-100">
+        <footer className="w-100">
       <img class="mono" src="images/single/footer-image.png" alt="" srcset="" />
       <div class="footer-wrapper">
         <div class="footer-menu">
