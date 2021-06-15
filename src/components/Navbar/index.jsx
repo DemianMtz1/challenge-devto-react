@@ -6,13 +6,13 @@ import {Routes} from '../Routes';
   
 export const Navbar = () => {
     return (
-        <div>
+        <nav>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Logo</Link>
                 </li>
                 <li>
-                    <Link to="/write-post" >Write a post</Link>
+                    <input type="text" />
                 </li>
                 <li>
                     <Link to="/post-details/:id">Details</Link>
@@ -21,6 +21,6 @@ export const Navbar = () => {
 
 
             <Routes />
-        </div>
+        </nav>
     )
 }
