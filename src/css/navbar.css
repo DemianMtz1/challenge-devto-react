@@ -1,3 +1,49 @@
+/* .navbar {
+  width: 100%; 
+
+   padding: 1rem 2rem;
+} */
+
+.navbar-logo {
+  margin: 0.5rem;
+
+  padding: 0.5rem 0.5rem;
+
+  font-size: 1.25rem;
+
+  background: black;
+  color: white;
+
+  border-radius: 0.3rem;
+}
+
+.navbar-search {
+  /* width: 100%; */
+
+  margin-left: 1rem;
+
+  font-size: 0.75rem;
+
+  padding: 0.5rem;
+
+  border-radius: 0.25rem;
+
+  border-color: rgb(241, 241, 241);
+
+  background: none;
+}
+
 .btn-post {
   color: white;
+}
+
+.navbar-avatar {
+  border-radius: 75%;
+
+  border: 1px solid black;
+
+  background-color: rgb(62, 252, 147);
+
+  height: 2rem;
+  width: 2rem;
 }
