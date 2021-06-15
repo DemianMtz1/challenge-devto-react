@@ -10,6 +10,7 @@ import {
 ReactDOM.render(
   <Router>
     <Navbar />
+    
   </Router>,
   document.getElementById('root')
 );
