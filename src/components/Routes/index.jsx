@@ -4,7 +4,7 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-
+import { WritePostScreen } from '../../screens/WritePostScreen';
 
 export const Routes = () => {
     return (
@@ -16,7 +16,7 @@ export const Routes = () => {
             </Route>
             <Route path="/write-post" exact>
                 <div>
-                    <p>hola desde write-post</p>
+                    <WritePostScreen />
                 </div>
             </Route>
             <Route path="/" exact>
