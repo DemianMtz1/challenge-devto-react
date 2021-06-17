@@ -1,7 +1,7 @@
 export const concatDate = (date, time) => {
     let fecha = time.split(" ")[0];
 
-    fecha.length == 4 ? (fecha = "0" + fecha + ":00") : (fecha = fecha + ":00");
+    fecha.length === 4 ? (fecha = "0" + fecha + ":00") : (fecha = fecha + ":00");
 
     let fechaCompleta = date + " " + fecha;
 
