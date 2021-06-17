@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { WritePostScreen } from '../../screens/WritePostScreen';
 import { PostDetailsScreen } from '../../screens/PostDetailsScreen';
+import { FilterPostScreen } from '../../screens/FilterPostScreen';
 
 
 export const Routes = () => {
@@ -16,6 +17,9 @@ export const Routes = () => {
             </Route>
             <Route path="/write-post" exact>
                 <WritePostScreen />
+            </Route>
+            <Route path="/filtered-posts" exact>
+                <FilterPostScreen />
             </Route>
             <Route path="/" exact>
                 <App />

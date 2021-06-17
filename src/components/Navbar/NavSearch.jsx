@@ -1,17 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-// class NavSearch extends React.Component {
-//   render() {
-//     return <input type="search" placeholder="Search..." />;
-//   }
-// }
-
-// export default NavSearch;
 
 function NavSearch(props) {
   const className = props.className;
+ 
   return (
-    <input type="search" placeholder="Search..." className={`${className}`} />
+    <input
+      onChange={props.handleChangeInput}
+      type="text"
+      placeholder="Search..."
+      className={`${className}`} 
+    />
   );
 }
 
