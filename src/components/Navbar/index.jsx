@@ -32,7 +32,7 @@ export const Navbar = () => {
         </div>
         <div className="d-flex flex-row justify-content-center align-items-center mr-5 ">
           <MovileSearch
-            className="movile-search d-xs-block d-md-none"
+            className="d-none d-md-block movile-search d-xs-block d-md-none"
             src="../../images/icon-search.svg"
           />
           <AppButton

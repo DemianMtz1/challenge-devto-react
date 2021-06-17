@@ -101,6 +101,7 @@
   padding: 1rem;
   overflow: hidden;
   color: #2c3034;
+  z-index: 999;
 }
 
 .menu-item {
