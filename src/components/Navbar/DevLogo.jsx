@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 
 // class DevLogo extends React.Component {
 //   render() {
@@ -10,8 +11,13 @@ import React from "react";
 
 function DevLogo(props) {
   const className = props.className;
+  const history = useHistory();
 
-  return <h1 className={`${className}`}>DEV</h1>;
+  return (
+    <a onClick={() => history.push("/")}>
+      <h1 className={`${className}`}>DEV</h1>
+    </a>
+  );
 }
 
 export default DevLogo;

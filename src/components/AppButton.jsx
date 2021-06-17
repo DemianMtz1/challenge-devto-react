@@ -1,11 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router";
 
 function AppButton(props) {
   const className = props.className ? props.className : " ";
-
+  const history = useHistory();
   if (props.type === "anchor") {
     return (
-      <a className={`btn btn-link bg bg-primary ${className}`}>{props.text} </a>
+      <a
+        onClick={() => history.push("/write-post")}
+        className={`btn btn-link  ${className}`}
+      >
+        {props.text}{" "}
+      </a>
     );
   }
 
@@ -17,9 +23,3 @@ function AppButton(props) {
 }
 
 export default AppButton;
-
-{
-  /* <button id="post-btn-nav" class="btn button-post" data-view="newPost">
-  Write a post
-</button>; */
-}
