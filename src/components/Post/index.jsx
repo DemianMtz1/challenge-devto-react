@@ -3,7 +3,7 @@ import hearth from '../../assets/images/single/reaction-heart.svg';
 import comentario from '../../assets/images/single/comentario.svg';
 import { useHistory } from 'react-router-dom';
 
-export const Post = ({ post, replies, hideImage }) => {
+export const Post = ({ post, replies, hideImage, idx }) => {
     const datePost = new Date(post.createdDate);
     const filteredReplies = replies.filter(reply => reply.idPost === post._id)
     const navigation = useHistory()
@@ -16,7 +16,7 @@ export const Post = ({ post, replies, hideImage }) => {
             onClick={() => navigation.push(`/post-details/${post._id}`)}
         >
             {
-                hideImage === true ? null : <img src={post.imgPost} className="card-img-top" alt={post._id} />
+                (hideImage === true || idx > 0) ? null : <img src={post.imgPost} className="card-img-top" alt={post._id} />
             }
             <div className="card-body">
                 <div className="autor">

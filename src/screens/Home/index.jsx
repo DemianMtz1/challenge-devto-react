@@ -128,7 +128,7 @@ export const
                                 </div>
                                 <div className="col-12  p-0" id="card-wrapper">
                                     {
-                                        posts.map((post, idx) => <Post post={post} replies={replies} key={idx} />)
+                                        posts.map((post, idx) => <Post post={post} replies={replies} key={idx} idx={idx}/>)
                                     }
                                 </div>
                             </div>
